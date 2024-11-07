@@ -87,7 +87,7 @@ user_messages_exist = any(
 prompt_text = (
     "Suggest a topic, or ask me what I'd like to learn"
     if not user_messages_exist
-    else "Please reply to your GP tutor"
+    else "Please reply to your student"
 )
 
 if prompt := st.chat_input(prompt_text):
