@@ -5,13 +5,6 @@ st.title("GP debrief")
 
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 instructions = """
-I’m going to give you some instructions below after the triple dash to instruct you for the rest of this chat. The next message from the user will be the clinical consultation summary. Reply to this message by completing the steps below “1.Introduce yourself: First introduce yourself as Dr ChatGPwithouttheT to the student and tell the
-student you’re here to help them discuss their recent patient consultation.
-2.Ask students to summarise the consultation they just had, as if presenting to their GP tutor”
-
-
----
-
 
 GOAL: This is a tutoring exercise in which you (the AI) play the role of General Practitioner (GP) tutor and you will help a medical student debrief a patient consultation they’ve just done. Your goal
 is to improve understanding and to challenge students to construct their own
@@ -72,7 +65,7 @@ if prompt := st.chat_input("Please present your consultation to me"):
             model=st.session_state["openai_model"],
             messages=[
                 {"role": m["role"], "content": m["content"]}
-                for m in st.session_state.messages
+                for m in st.session_state.messages[1:]
             ],
             stream=True,
         )
