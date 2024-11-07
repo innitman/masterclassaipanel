@@ -85,7 +85,7 @@ user_messages_exist = any(
     message["role"] == "user" for message in st.session_state.messages
 )
 prompt_text = (
-    "Start by presenting your consultation to me, your GP tutor"
+    "Suggest a topic, or ask me what I'd like to learn"
     if not user_messages_exist
     else "Please reply to your GP tutor"
 )
