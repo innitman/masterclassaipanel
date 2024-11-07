@@ -56,7 +56,16 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-if prompt := st.chat_input("Please present your consultation to me, your GP tutor"):
+user_messages_exist = any(
+    message["role"] == "user" for message in st.session_state.messages
+)
+prompt_text = (
+    "Start by presenting your consultation to me, your GP tutor"
+    if not user_messages_exist
+    else "Please reply to your GP tutor"
+)
+
+if prompt := st.chat_input(prompt_text):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
