@@ -85,7 +85,7 @@ user_messages_exist = any(
     message["role"] == "user" for message in st.session_state.messages
 )
 prompt_text = (
-    "Suggest a topic, or ask me what I'd like to learn"
+    "I'm a Phase 1a medical student - please tell me about the consultation you just did"
     if not user_messages_exist
     else "Please reply to your student"
 )
