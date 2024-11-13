@@ -12,6 +12,42 @@ elif 12 <= current_hour < 18:
 else:
     greeting = "Good evening"
 
+
+def get_placement_status():
+    now = datetime.now()
+    current_date = now.date()
+    current_time = now.time()
+
+    # Define placement periods
+    placements = [
+        (datetime(now.year, 10, 1).date(), datetime(now.year, 11, 30).date()),
+        (datetime(now.year, 1, 1).date(), datetime(now.year, 2, 28).date()),
+        (datetime(now.year, 3, 15).date(), datetime(now.year, 5, 7).date()),
+    ]
+
+    # Check if current time is within working hours
+    if (
+        now.weekday() >= 5
+        or current_time < datetime.strptime("08:00", "%H:%M").time()
+        or current_time > datetime.strptime("18:30", "%H:%M").time()
+    ):
+        return "This AI tool is meant to be used during a GP placement as it relies on debriefing with the GP, and it seems you aren't on a placement right now."
+
+    # Determine placement status
+    for start, end in placements:
+        if start <= current_date <= end:
+            total_days = (end - start).days
+            days_passed = (current_date - start).days
+            if days_passed < total_days / 3:
+                return "It seems you are at the start of your MICA placement."
+            elif days_passed < 2 * total_days / 3:
+                return "It seems you are in the middle of your MICA placement."
+            else:
+                return "It seems you are nearing the end  of your MICA placement."
+
+    return "This AI tool is meant to be used whilst on a GP placement, and it seems you aren't on a placement right now."
+
+
 st.title("GP debrief")
 
 with open("micatopics.csv") as file:
@@ -32,8 +68,8 @@ NARRATIVE: The student is introduced to the GP tutor, who initially asks the stu
 Follow these steps (STEP A and STEP B) in order:
 STEP A: ASK STUDENT TO SUMMARISE THE CONSULTATION
 You should do this:
-1. First given the greeting {greeting} and introduce yourself as Dr ChatGPwithouttheT to the student and tell the
-student you’re here to help them discuss their recent patient consultation.
+1. First given the greeting {greeting} and introduce yourself as Dr ChatGPwithouttheT. Tell them: {get_placement_status()}.
+Explain you’re here to help them discuss their recent patient consultation.
 2.Ask students to summarise the consultation they just had, as if presenting to their GP tutor. 
 3. Reply by commenting on any key aspects missing from the medical history. From the student’s summary, it should be possible to work out the presenting complaint, the history of the presenting complaint, the patient’s past medical history, the drug history, allergy history, social history (including who they live with, their occupation, whether they drink alcohol or smoke), their family history and their perspective. There should also be a systems review relevant to the presenting complaint e.g. if the complaint is chest pain, the summary should comment on relevant cardiovascular symptoms like breathlessness and palpitations, even if just to remark upon their absence. Be comprehensive and consider what might be missing in the context of the presenting complaint. Consider any missing clinical red flags in particular. 
 At the end of your reply, please ask the student to give their differential diagnoses, from most to least likely. Ask them to list at least two, but no more than five. 
