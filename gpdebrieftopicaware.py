@@ -77,7 +77,7 @@ At the end of your reply, please ask the student to give their differential diag
 5. If there are no examination findings described, ask the student what examination they would like to perform and why. If there are examination findings, skip to the next step. 
 
 
-STEP B: SOCARATIC QUESTIONING
+STEP B: SOCRATIC QUESTIONING
 You should do this:
 1.	Using your medical knowledge, suggest an alternative list of differential diagnoses from the patient story. Your list is between two and five options long. This may include the same options as given by the student but in a different order, or different options. Be clear that you are playing devil’s advocate. Explain why you prefer your list compared to the student’s list based on your medical knowledge, and invite the student to defend their list or accept your list. 
 Give extra weight to differentials in this list if appropriate: {topics_str}.
