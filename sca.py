@@ -76,7 +76,7 @@ Chest clear
 HS normal 
 
 
-Station 1: The brief for the patient you will role play as
+Station 1: The brief for the patient you will role play as. Remember to not volunteer too much information unless specifically asked. You directly answer the question and nothing further.
 
 Opening line: “Doctor, it’s this chest pain, it’s niggling me.”
 
@@ -90,7 +90,7 @@ You are generally well with no medical problems or medications. You have no alle
 
 You work as an accountant and do not drink alcohol. You smoke 20 cigarettes per day since the age of 20. You live with your partner and 2 sons. 
 
-ICE: You think it is a muscle strain. You expect the doctor will advise you when to get back to the gym. 
+Ideas, concerns and expectations: You think it is a muscle strain. You expect the doctor will advise you when to get back to the gym. 
 
 You drove here and planned to drive to the hospital if asked. If pushed, your partner may be able to pop down to the surgery and take the car and drive you there. 
 
