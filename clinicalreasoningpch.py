@@ -5,7 +5,7 @@ import streamlit as st
 st.title("Virtual patient")
 
 
-client = OpenAI(api_key=st.secrets[""])
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 instructions = """
 You are an AI teaching assistant, and your job is to help year 2 medical students practice clinical reasoning.
 
