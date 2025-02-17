@@ -5,7 +5,7 @@ import streamlit as st
 st.title("Virtual patient")
 
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=st.secrets[""])
 instructions = """
 You are an AI teaching assistant, and your job is to help year 2 medical students practice clinical reasoning.
 
@@ -60,7 +60,7 @@ State if the user did each of the following. Use a systematic, checklist approac
 
 """
 
-if "openai_model" not in st.session_state:3
+if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4o-mini"
 
 if "messages" not in st.session_state:
